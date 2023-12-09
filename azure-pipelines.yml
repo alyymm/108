@@ -1,42 +1,45 @@
-def coffee_ordering_system():
-    print("Welcome to the Coffee Shop!")
+size = int(input("Enter the size of the list: "))
 
-    menu = {
-        "1": "Cappuccino",
-        "2": "Espresso",
-        "3": "Latte",
-        "4": "Mocha",
-        "5": "Americano"
-    }
+# Create an empty list
+userlist = []
 
-    prices = {
-        "Cappuccino": 3.50,
-        "Espresso": 2.50,
-        "Latte": 4.00,
-        "Mocha": 4.50,
-        "Americano": 3.00
-    }
+# Get input values for the list
+for i in range(size):
+    value = (input("Enter a value for index {}: ".format(i)))
+    userlist.append(value)
 
-    while True:
-        print("\nPlease select your coffee from the menu below:")
-        print("Menu:")
-        for key, value in menu.items():
-            print(key + ": " + value)
+# Print the initial list
+print("Initial list:", userlist)
 
-        selection = input("Enter the number of your choice (Enter 'q' to quit): ")
+# Modify the list
+while True:
+    print("\nWhat do you want to do?")
+    print("1. Change a value")
+    print("2. Remove an element")
+    print("3. Exit")
+    choice = int(input("Enter your choice: "))
 
-        if selection == 'q':
-            print("Thank you for visiting the Coffee Shop. Have a great day!")
-            break
+    if choice == 1:
+        j = int(input("Enter the index of the value to change: "))
+        if j < 0 or j >= size:
+            print("Invalid index!")
+            continue
+        newlist = (input("Enter the new value: "))
+        userlist[j] = newlist
+        print("Modified list:", userlist)
+    elif choice == 2:
+        j = int(input("Enter the index of the element to remove: "))
+        if j < 0 or j >= size:
+            print("Invalid index!")
+            continue
+        userlist.pop(j)
+        size -= 1
+        print("Modified list:", userlist)
+    elif choice == 3:
+        # Exit the program
+        print("Done")
+        break
+    else:
+        print("Invalid choice!")
 
-        if selection in menu:
-            coffee_name = menu[selection]
-            price = prices[coffee_name]
-            print("You have selected:", coffee_name)
-            print("The price is:", price)
-            print("Please proceed to the counter for payment.")
-        else:
-            print("Invalid selection. Please try again.")
-
-coffee_ordering_system()
  
