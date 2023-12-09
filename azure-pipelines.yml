@@ -1,14 +1,42 @@
-L1 =["Sam", 102, "USA"]
-L2 = [11, 20, 3, 47, 55, 96]
-color = ["red", "blue", "green"]
-list2 = [1,2,3,4]
+def coffee_ordering_system():
+    print("Welcome to the Coffee Shop!")
 
-list2.append(100)
-L1.insert(1, "mabingnay")
-print(list2)
-print(color)
-color[0] = "pink"
-color[-1] = "orange"
-print(color)
-print(L1)
-print(L2)
+    menu = {
+        "1": "Cappuccino",
+        "2": "Espresso",
+        "3": "Latte",
+        "4": "Mocha",
+        "5": "Americano"
+    }
+
+    prices = {
+        "Cappuccino": 3.50,
+        "Espresso": 2.50,
+        "Latte": 4.00,
+        "Mocha": 4.50,
+        "Americano": 3.00
+    }
+
+    while True:
+        print("\nPlease select your coffee from the menu below:")
+        print("Menu:")
+        for key, value in menu.items():
+            print(key + ": " + value)
+
+        selection = input("Enter the number of your choice (Enter 'q' to quit): ")
+
+        if selection == 'q':
+            print("Thank you for visiting the Coffee Shop. Have a great day!")
+            break
+
+        if selection in menu:
+            coffee_name = menu[selection]
+            price = prices[coffee_name]
+            print("You have selected:", coffee_name)
+            print("The price is:", price)
+            print("Please proceed to the counter for payment.")
+        else:
+            print("Invalid selection. Please try again.")
+
+coffee_ordering_system()
+ 
